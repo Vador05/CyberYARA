@@ -26,8 +26,13 @@ yara -r rules/pypi_trojan_credential_harvester.yar requests_extracted/
 
 | Rule | Target | Threat | Severity |
 |------|--------|--------|----------|
+| [downloaddnsrecordsincsvforadomain](rules/downloaddnsrecordsincsvforadomain.yar) | Source files | Detects Python scripts that enumerate DNS record types and export results, matching the DownloadDNSRecordsInCSVforADomain tool pattern | Low |
+| [haranalyzer](rules/haranalyzer.yar) | Source files | Detects HTTP Archive (HAR) files by their canonical JSON structure | Critical |
+| [malicious_jetbrains_plugins_steal_ai_api_keys_as_chrome_extensions_capture_chatbot_chats](rules/malicious_jetbrains_plugins_steal_ai_api_keys_as_chrome_extensions_capture_chatbot_chats.yar) | Source files | Detects JavaScript inside a VS Code extension (.vsix) that reads sensitive credential/key files and exfiltrates them via HTTP POST — classic supply-chain plugin backdoor | Critical |
+| [microsoft_confirms_rogueplanet_defender_zero_day_says_patch_is_in_development](rules/microsoft_confirms_rogueplanet_defender_zero_day_says_patch_is_in_development.yar) | Source files | Detects binaries exhibiting RoguePlanet-style privilege escalation targeting Windows Defender (CVE-2026-50656) | Critical |
+| [microsoft_working_on_patch_for_rogueplanet_zero_day](rules/microsoft_working_on_patch_for_rogueplanet_zero_day.yar) | Source files | Detects tools or scripts exploiting the RoguePlanet Defender race condition for SYSTEM shell escalation | Critical |
 | [pypi_trojan_credential_harvester](rules/pypi_trojan_credential_harvester.yar) | Python source files / PyPI wheels | Supply chain trojan — env var exfil, C2 webhooks, encoded payloads | Critical |
-| [python_vuln_patterns](rules/python_vuln_patterns.yar) | Python source files | SQLi, command injection, hardcoded secrets, path traversal, dangerous eval | High |
+| [python_vuln_patterns](rules/python_vuln_patterns.yar) | Python source files | SQLi, command injection, hardcoded secrets, path traversal, dangerous eval | Critical |
 
 ## Contributing
 

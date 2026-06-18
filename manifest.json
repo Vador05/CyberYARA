@@ -1,0 +1,180 @@
+{
+  "last_updated": "2026-06-18",
+  "rules": [
+    {
+      "name": "pypi_trojan_credential_harvester",
+      "file": "rules/pypi_trojan_credential_harvester.yar",
+      "rules": [
+        "PyPI_Trojan_EnvVar_Exfiltration",
+        "PyPI_Trojan_HTTP_Exfiltration",
+        "PyPI_Trojan_C2_Webhook",
+        "PyPI_Trojan_Encoded_Payload",
+        "PyPI_Trojan_Subprocess_Download",
+        "PyPI_Trojan_Socket_Exfiltration",
+        "PyPI_Trojan_Exfil_Service",
+        "PyPI_Trojan_Combined_High_Confidence"
+      ],
+      "target": "Python source files / PyPI wheels",
+      "threat": "Supply chain trojan \u2014 env var exfil, C2 webhooks, encoded payloads",
+      "severity": "critical",
+      "mitre": [
+        "T1027",
+        "T1041",
+        "T1059.004",
+        "T1102.002",
+        "T1195.001",
+        "T1552.001",
+        "T1567"
+      ],
+      "source": "news",
+      "status": "published",
+      "description": "Supply chain trojan \u2014 env var exfil, C2 webhooks, encoded payloads"
+    },
+    {
+      "name": "python_vuln_patterns",
+      "file": "rules/python_vuln_patterns.yar",
+      "rules": [
+        "Python_SQLInjection",
+        "Python_CommandInjection",
+        "Python_ShellTrue",
+        "Python_HardcodedPassword",
+        "Python_HardcodedSecret",
+        "Python_PathTraversal",
+        "Python_DangerousEval",
+        "Python_MultipleVulns_HighConfidence"
+      ],
+      "target": "Python source files",
+      "threat": "SQLi, command injection, hardcoded secrets, path traversal, dangerous eval",
+      "severity": "critical",
+      "mitre": [
+        "T1059",
+        "T1059.004",
+        "T1059.006",
+        "T1083",
+        "T1190",
+        "T1552.001"
+      ],
+      "source": "news",
+      "status": "published",
+      "description": "SQLi, command injection, hardcoded secrets, path traversal, dangerous eval"
+    },
+    {
+      "name": "microsoft_confirms_rogueplanet_defender_zero_day_says_patch_is_in_development",
+      "file": "rules/microsoft_confirms_rogueplanet_defender_zero_day_says_patch_is_in_development.yar",
+      "rules": [
+        "RoguePlanet_CVE_2026_50656_PrivEsc_Dropper",
+        "RoguePlanet_CVE_2026_50656_Script_Stager",
+        "RoguePlanet_CVE_2026_50656_Memory_Artifact"
+      ],
+      "description": "Detects binaries exhibiting RoguePlanet-style privilege escalation targeting Windows Defender (CVE-2026-50656)",
+      "threat": "Detects binaries exhibiting RoguePlanet-style privilege escalation targeting Windows Defender (CVE-2026-50656)",
+      "target": "Source files",
+      "severity": "critical",
+      "mitre": [
+        "T1055",
+        "T1055.012",
+        "T1059.001",
+        "T1068",
+        "T1134",
+        "T1134.001",
+        "T1547.009",
+        "T1562.001"
+      ],
+      "source": "news",
+      "status": "draft"
+    },
+    {
+      "name": "downloaddnsrecordsincsvforadomain",
+      "file": "rules/downloaddnsrecordsincsvforadomain.yar",
+      "rules": [
+        "DownloadDNSRecordsInCSVforADomain"
+      ],
+      "description": "Detects Python scripts that enumerate DNS record types and export results, matching the DownloadDNSRecordsInCSVforADomain tool pattern",
+      "threat": "Detects Python scripts that enumerate DNS record types and export results, matching the DownloadDNSRecordsInCSVforADomain tool pattern",
+      "target": "Source files",
+      "severity": "low",
+      "mitre": [
+        "T1590.002"
+      ],
+      "source": "tool",
+      "status": "draft"
+    },
+    {
+      "name": "haranalyzer",
+      "file": "rules/haranalyzer.yar",
+      "rules": [
+        "HAR_File_Generic",
+        "HAR_Contains_Authorization_Header",
+        "HAR_Contains_Session_Cookies",
+        "HAR_Contains_Credentials_In_PostData",
+        "HAR_Contains_OAuth_Tokens"
+      ],
+      "description": "Detects HTTP Archive (HAR) files by their canonical JSON structure",
+      "threat": "Detects HTTP Archive (HAR) files by their canonical JSON structure",
+      "target": "Source files",
+      "severity": "critical",
+      "mitre": [
+        "T1005",
+        "T1074",
+        "T1078",
+        "T1528",
+        "T1539",
+        "T1550.001",
+        "T1552"
+      ],
+      "source": "tool",
+      "status": "draft"
+    },
+    {
+      "name": "malicious_jetbrains_plugins_steal_ai_api_keys_as_chrome_extensions_capture_chatbot_chats",
+      "file": "rules/malicious_jetbrains_plugins_steal_ai_api_keys_as_chrome_extensions_capture_chatbot_chats.yar",
+      "rules": [
+        "Susp_VsCode_Extension_CredentialHarvest_JS",
+        "Susp_VsCode_Extension_Obfuscated_Eval_Exec",
+        "Susp_Plugin_PackageJson_Typosquat_Publisher",
+        "Susp_JetBrains_Plugin_RuntimeExec_Harvest"
+      ],
+      "description": "Detects JavaScript inside a VS Code extension (.vsix) that reads sensitive credential/key files and exfiltrates them via HTTP POST \u2014 classic supply-chain plugin backdoor",
+      "threat": "Detects JavaScript inside a VS Code extension (.vsix) that reads sensitive credential/key files and exfiltrates them via HTTP POST \u2014 classic supply-chain plugin backdoor",
+      "target": "Source files",
+      "severity": "critical",
+      "mitre": [
+        "T1005",
+        "T1027",
+        "T1036.005",
+        "T1059.004",
+        "T1059.007",
+        "T1071.001",
+        "T1195.001",
+        "T1552.001"
+      ],
+      "source": "news",
+      "status": "draft"
+    },
+    {
+      "name": "microsoft_working_on_patch_for_rogueplanet_zero_day",
+      "file": "rules/microsoft_working_on_patch_for_rogueplanet_zero_day.yar",
+      "rules": [
+        "RoguePlanet_Exploit_Tool",
+        "RoguePlanet_PowerShell_Stager",
+        "RoguePlanet_DroppedSYSTEM_Shell_Artifact"
+      ],
+      "description": "Detects tools or scripts exploiting the RoguePlanet Defender race condition for SYSTEM shell escalation",
+      "threat": "Detects tools or scripts exploiting the RoguePlanet Defender race condition for SYSTEM shell escalation",
+      "target": "Source files",
+      "severity": "critical",
+      "mitre": [
+        "T1036.005",
+        "T1055",
+        "T1059.001",
+        "T1068",
+        "T1105",
+        "T1218",
+        "T1543.003",
+        "T1574.010"
+      ],
+      "source": "news",
+      "status": "draft"
+    }
+  ]
+}
